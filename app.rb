@@ -2,19 +2,16 @@ require 'rugged'
 require 'dotenv'
 Dotenv.load
 
-# repo = Rugged::Repository.clone_at(ENV['GITTEST_REMOTE_SSH_URL'], dir, {
-#           credentials: ssh_key_credential
-#         })
-
 # From https://coderwall.com/p/l9xxaq/commit-a-new-file-to-git-using-rugged
 
 git_email = 'erik@erikschwartz.net'
 git_name = 'Erik Schwartz'
 
-repo_name = '../target-repo-for-rugged'
+# # (1)
+dir = Dir.mktmpdir
+clone_url = 'https://github.com/eeeschwartz/target-repo-for-rugged.git'
+repo = Rugged::Repository.clone_at(clone_url, dir)
 
-# (1)
-repo = Rugged::Repository.new repo_name
 #
 # (2)
 repo.checkout 'refs/heads/master'
