@@ -11,3 +11,10 @@ To create a Heroku app using heroku-buildpack-multi:
 Or in an existing app:
 
     $ heroku buildpacks:set https://github.com/ddollar/heroku-buildpack-multi.git
+
+```
+$ git push heroku master
+$ heroku run bundle exec irb
+irb(main):001:0> require 'rugged'
+=> true
+```
